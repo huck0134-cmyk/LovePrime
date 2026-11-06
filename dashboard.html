@@ -1,0 +1,186 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LovePrime Admin Dashboard</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #100814;
+  color: white;
+}
+
+header {
+  background: #211329;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+h1 {
+  color: #ff4d8d;
+}
+
+button {
+  background: #ff2678;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ff4d8d;
+}
+
+main {
+  padding: 25px;
+}
+
+.card {
+  background: #211329;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+#status {
+  color: #ff4d8d;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input[type="text"], input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #442854;
+  background: #100814;
+  color: white;
+  margin-top: 5px;
+}
+
+.video-item {
+  background: #190c20;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background: #ff3333;
+  padding: 8px 12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>LovePrime Admin</h1>
+  <button id="logoutBtn">Logout</button>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>Welcome to Admin Dashboard ❤️</h2>
+    <p>LovePrime Website Management</p>
+    <p id="adminEmail">Checking Admin...</p>
+    <p id="status">Checking login status...</p>
+  </div>
+
+  <!-- Video Upload Section -->
+  <div class="card">
+    <h2>Upload & Manage Videos</h2>
+    <div class="form-group">
+      <label>Video Title:</label>
+      <input type="text" id="videoTitle" placeholder="Enter video title...">
+    </div>
+    <div class="form-group">
+      <label>Select Video File:</label>
+      <input type="file" id="videoFile" accept="video/*">
+    </div>
+    <button id="uploadBtn">Upload Video</button>
+    <p id="uploadStatus" style="margin-top: 10px; color: #ff4d8d;"></p>
+  </div>
+
+  <!-- Website Video List Section -->
+  <div class="card">
+    <h2>All Uploaded Videos</h2>
+    <div id="videoContainer">
+      <p>Loading videos...</p>
+    </div>
+  </div>
+
+</main>
+
+<script type="module">
+
+import {
+  auth,
+  onAuthStateChanged,
+  signOut
+} from "./firebase.js";
+
+// Agar aapko Firestore ya Storage use karna hai toh firebase.js se import karein
+// Jaise: import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+const ADMIN_EMAIL = "huck0134@gmail.com";
+
+const adminEmail = document.getElementById("adminEmail");
+const status = document.getElementById("status");
+
+onAuthStateChanged(auth, (user) => {
+
+  if (!user || user.email?.toLowerCase() !== ADMIN_EMAIL) {
+    signOut(auth);
+    window.location.href = "admin.html";
+    return;
+  }
+
+  adminEmail.textContent = "Admin: " + user.email;
+  status.textContent = "Admin Login Verified ✅";
+
+});
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  await signOut(auth);
+  window.location.href = "admin.html";
+});
+
+// Video Upload Action Button Logic
+document.getElementById("uploadBtn").addEventListener("click", () => {
+  const title = document.getElementById("videoTitle").value;
+  const fileInput = document.getElementById("videoFile").files[0];
+  const uploadStatus = document.getElementById("uploadStatus");
+
+  if (!title || !fileInput) {
+    alert("Please enter a title and select a video file!");
+    return;
+  }
+
+  uploadStatus.textContent = "Uploading... (Aap yahan Firebase Storage / Firestore code link kar sakte hain)";
+  
+  // Yahan aap apna Firebase Storage ka code add kar sakte hain jo video ko cloud par daal kar link generate karega.
+});
+
+</script>
+
+</body>
+</html>

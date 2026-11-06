@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LovePrime - Watch Videos</title>
+    <meta name="description" content="Welcome to LovePrime, your destination for videos, entertainment, education and more.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container navbar">
+
+            <a href="index.html" class="logo">
+                Love<span>Prime</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#videos">Videos</a>
+                <a href="#categories">Categories</a>
+                <a href="#about">About</a>
+            </nav>
+
+            <a href="admin/login.html" class="admin-btn">
+                Admin Login
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+                <span class="tagline">WELCOME TO LOVEPRIME</span>
+
+                <h1>
+                    Discover Videos.<br>
+                    <span>Enjoy Every Moment.</span>
+                </h1>
+
+                <p>
+                    Explore entertainment, education, lifestyle, technology
+                    and amazing videos from around the world.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#videos" class="primary-btn">
+                        Explore Videos
+                    </a>
+
+                    <a href="#categories" class="secondary-btn">
+                        Browse Categories
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="play-icon">▶</div>
+                <h2>Your Entertainment Universe</h2>
+                <p>Watch • Learn • Enjoy</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories-section" id="categories">
+
+        <div class="container">
+
+            <div class="section-heading">
+                <span>EXPLORE</span>
+                <h2>Browse Categories</h2>
+                <p>Find videos according to your interests.</p>
+            </div>
+
+            <div class="categories">
+
+                <button class="category-btn active" data-category="all">
+                    All Videos
+                </button>
+
+                <button class="category-btn" data-category="entertainment">
+                    Entertainment
+                </button>
+
+                <button class="category-btn" data-category="education">
+                    Education
+                </button>
+
+                <button class="category-btn" data-category="lifestyle">
+                    Lifestyle
+                </button>
+
+                <button class="category-btn" data-category="music">
+                    Music
+                </button>
+
+                <button class="category-btn" data-category="technology">
+                    Technology
+                </button>
+
+                <button class="category-btn" data-category="other">
+                    Other
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Videos Section -->
+    <section class="videos-section" id="videos">
+
+        <div class="container">
+
+            <div class="videos-heading">
+
+                <div class="section-heading">
+                    <span>WATCH NOW</span>
+                    <h2>Latest Videos</h2>
+                    <p>Discover something new every day.</p>
+                </div>
+
+                <div class="search-box">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search videos..."
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="video-grid" id="videoGrid">
+
+                <!-- Demo Video 1 -->
+                <div class="video-card" data-category="entertainment">
+
+                    <div class="video-thumbnail thumbnail-one">
+                        <span class="video-label">ENTERTAINMENT</span>
+                        <div class="thumbnail-play">▶</div>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Welcome to LovePrime</h3>
+                        <p>Discover our video platform.</p>
+
+                        <div class="video-meta">
+                            <span>Demo Video</span>
+                            <span>Free</span>
+                        </div>
+
+                        <button class="watch-btn" disabled>
+                            Watch Video
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- Demo Video 2 -->
+                <div class="video-card" data-category="education">
+
+                    <div class="video-thumbnail thumbnail-two">
+                        <span class="video-label">EDUCATION</span>
+                        <div class="thumbnail-play">▶</div>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Learn Something New</h3>
+                        <p>Educational content coming soon.</p>
+
+                        <div class="video-meta">
+                            <span>Demo Video</span>
+                            <span>Free</span>
+                        </div>
+
+                        <button class="watch-btn" disabled>
+                            Watch Video
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- Demo Video 3 -->
+                <div class="video-card" data-category="technology">
+
+                    <div class="video-thumbnail thumbnail-three">
+                        <span class="video-label">TECHNOLOGY</span>
+                        <div class="thumbnail-play">▶</div>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Explore Technology</h3>
+                        <p>Technology videos coming soon.</p>
+
+                        <div class="video-meta">
+                            <span>Demo Video</span>
+                            <span>Free</span>
+                        </div>
+
+                        <button class="watch-btn" disabled>
+                            Watch Video
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+
+        <div class="container about-content">
+
+            <span>ABOUT LOVEPRIME</span>
+
+            <h2>Your Videos.<br>Your Entertainment.</h2>
+
+            <p>
+                LovePrime is designed to bring videos, entertainment,
+                learning and creativity together in one place.
+                Our goal is to provide a simple and enjoyable experience
+                for viewers around the world.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <a href="index.html" class="logo">
+                Love<span>Prime</span>
+            </a>
+
+            <p>© 2026 LovePrime. All rights reserved.</p>
+
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact</a>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
